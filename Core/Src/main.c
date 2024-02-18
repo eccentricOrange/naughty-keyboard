@@ -72,13 +72,6 @@ void rickRoll() {
     HAL_Delay(250);
 
     // Type a URL
-    commandAndEnter("eccentricorange.netlify.app");
-
-    // Open a new tab (Ctrl + T)
-    sendRawCharacter(0x17, MODIFIER_CTRL);
-    HAL_Delay(50);
-
-    // Type a URL
     commandAndEnter("github.com/eccentricOrange/naughty-keyboard");
 
     // Open a new tab (Ctrl + T)
