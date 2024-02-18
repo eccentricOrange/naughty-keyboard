@@ -61,12 +61,12 @@ void rickRoll();
 void rickRoll() {
     // Open Google Chrome
     commandAndEnter("google chrome");
-    HAL_Delay(200);
+    HAL_Delay(1000);
 
     // Press tab and enter
-    sendRawCharacter(0x2B, 0);
+    sendRawCharacter(0x2B, MODIFIER_NONE);
     HAL_Delay(50);
-    sendRawCharacter(0x28, 0);
+    sendRawCharacter(0x28, MODIFIER_NONE);
 
     // Wait
     HAL_Delay(250);
@@ -79,7 +79,26 @@ void rickRoll() {
     HAL_Delay(50);
 
     // Type a URL
+    commandAndEnter("github.com/eccentricOrange/naughty-keyboard");
+
+    // Open a new tab (Ctrl + T)
+    sendRawCharacter(0x17, MODIFIER_CTRL);
+    HAL_Delay(50);
+
+    // Type a URL
     commandAndEnter("youtube.com/watch?v=dQw4w9WgXcQ");
+
+    // Wait
+    HAL_Delay(5000);
+
+    // Go full screen
+    sendAutoCharacter('f');
+
+    // Set the volume to 100%
+    for (int i = 0; i < 25; i++) {
+        sendRawCharacter(0x52, MODIFIER_NONE);
+        HAL_Delay(50);
+    }
 }
 
 void messWithTerminal() {
