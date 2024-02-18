@@ -1,0 +1,59 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "-j8",
+                "all",
+                "TARGET=vsarm_firmware"
+            ],
+            "options": {
+                "cwd": "${workspaceRoot}"
+            },
+            "group": {
+                "kind": "build"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "clean"
+            ],
+            "options": {
+                "cwd": "${workspaceRoot}"
+            },
+            "group": {
+                "kind": "build"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "flash",
+            "type": "shell",
+            "command": "STM32_Programmer_CLI",
+            "args": 
+            [
+                "-c port=SWD",
+                "-e all", 
+                "-d ./build/vsarm_firmware.bin 0x8000000",
+                "-v",
+                "-hardRst",
+                "-run"
+            ],
+            "options": {
+                "cwd": "${workspaceRoot}"
+            },
+            "group": {
+                "kind": "build"
+            },
+            "problemMatcher": [],
+            "dependsOn": "build"
+        },
+    ]
+}

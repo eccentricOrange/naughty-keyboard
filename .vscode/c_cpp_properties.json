@@ -1,0 +1,26 @@
+{
+    "configurations": [
+        {
+            "name": "STM32 arm-none-eabi-gcc",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [
+                "USE_HAL_DRIVER",
+                "STM32F411xE",
+                "USE_HAL_DRIVER",
+                "USE_FULL_LL_DRIVER",
+                "USE_FULL_ASSERT"
+            ],
+            "compilerPath": "/usr/bin/arm-none-eabi-gcc",
+            "compilerArgs": [
+                "-mcpu=cortex-m4",
+                "-mthumb"
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++20",
+            "intelliSenseMode": "gcc-arm"
+        }
+    ],
+    "version": 4
+}
